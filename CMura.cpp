@@ -14,26 +14,6 @@ void CMura::FromCSV(const std::string &csv) {
             ReadTransitionsCSV(line);
         }
     }
-
-    for (const auto &output: m_output) {
-        std::cout << output << " ";
-    }
-    std::cout << std::endl;
-    for (const auto &state: m_states) {
-        std::cout << state << " ";
-    }
-    std::cout << std::endl;
-    for (const auto &path: m_paths) {
-        std::cout << path << " ";
-    }
-    std::cout << std::endl;
-    for (const auto &paths: m_transitions) {
-        for (const auto &item: paths) {
-            std::cout << item << " ";
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 void CMura::FromData(

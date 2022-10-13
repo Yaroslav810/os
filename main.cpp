@@ -1,4 +1,4 @@
-#include "./CMiles.hpp"
+#include "./CMiles.h"
 #include <fstream>
 #include <iostream>
 

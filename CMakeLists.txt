@@ -6,7 +6,10 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(
         os
         main.cpp
-        utils.hpp
-        CMiles.hpp
-        CMura.hpp
+        utils.h
+        utils.cpp
+        CMiles.h
+        CMiles.cpp
+        CMura.h
+        CMura.cpp
 )

@@ -1,0 +1,7 @@
+//            for (const auto &[s, obj]: m_state) {
+            //                std::cout << s << std::endl;
+            //                for (const auto &[path, info]: obj.transitions) {
+            //                    std::cout << "   " << path << std::endl;
+            //                    std::cout << "      " << info.to << " " << info.out << std::endl;
+            //                }
+            //            }

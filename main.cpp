@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 
-const std::string MILES_TO_MURA = "miles-to-mura";
-const std::string MURA_TO_MILES = "mura-to-miles";
+const std::string MEALY_TO_MOORE = "mealy-to-moore";
+const std::string MOORE_TO_MEALY = "moore-to-mealy";
 
 enum class TransitionType {
     MilesToMura,
@@ -17,10 +17,10 @@ struct Args {
 };
 
 TransitionType ParseType(const std::string &type) {
-    if (type == MILES_TO_MURA) {
+    if (type == MEALY_TO_MOORE) {
         return TransitionType::MilesToMura;
     }
-    if (type == MURA_TO_MILES) {
+    if (type == MOORE_TO_MEALY) {
         return TransitionType::MuraToMiles;
     }
 

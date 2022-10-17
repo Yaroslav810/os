@@ -11,9 +11,9 @@ enum class TransitionType {
 };
 
 struct Args {
+    TransitionType type;
     std::string input;
     std::string output;
-    TransitionType type;
 };
 
 TransitionType ParseType(const std::string &type) {
@@ -33,9 +33,9 @@ Args ParseArgs(int argc, char *argv[]) {
     }
 
     return {
-            .input = argv[1],
-            .output = argv[2],
-            .type = ParseType(argv[3]),
+            .type = ParseType(argv[1]),
+            .input = argv[2],
+            .output = argv[3],
     };
 }
 

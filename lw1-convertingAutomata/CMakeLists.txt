@@ -1,0 +1,10 @@
+add_executable(
+        os
+        main.cpp
+        utils.h
+        utils.cpp
+        CMiles.h
+        CMiles.cpp
+        CMura.h
+        CMura.cpp
+)

@@ -1,0 +1,9 @@
+add_executable(
+        os_determination
+        main.cpp
+        src/Args/Args.h
+        src/Common/CommonType.h
+        src/Common/CommonFunc.h
+        src/Determination/Determination.h
+        src/Machine/Machine.h
+)

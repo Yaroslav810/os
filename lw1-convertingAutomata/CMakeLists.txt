@@ -1,5 +1,5 @@
 add_executable(
-        os
+        os_converting
         main.cpp
         utils.h
         utils.cpp

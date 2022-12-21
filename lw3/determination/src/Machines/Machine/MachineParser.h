@@ -1,21 +1,9 @@
 #pragma once
-#include "../Common/CommonFunc.h"
-#include "../Common/CommonType.h"
-#include <fstream>
+#include "../../Common/CommonType.h"
+#include "Machine.h"
 #include <iostream>
-#include <set>
-#include <unordered_map>
-#include <vector>
 
 constexpr char SEPARATOR = '|';
-
-using MachineTransitionState = std::unordered_map<std::string, std::set<std::string>>;
-
-struct Machine {
-    std::vector<std::string> states;
-    std::vector<std::string> paths;
-    std::unordered_map<std::string, MachineTransitionState> transitions;
-};
 
 void ParseTransition(const std::string &string, Machine &machine, DeterminationType type) {
     auto currentState = machine.states[machine.states.size() - 1];

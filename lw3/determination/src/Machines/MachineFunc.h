@@ -1,6 +1,6 @@
 #pragma once
-#include "DeterministicMachine.h"
-#include "Machine.h"
+#include "DeterministicMachine/DeterministicMachine.h"
+#include "Machine/Machine.h"
 
 const std::string NEW_STATE_TITLE = "S";
 

@@ -1,6 +1,6 @@
 #include "src/Args/Args.h"
 #include "src/Determination/Determination.h"
-#include "src/Machine/Machine.h"
+#include "src/Machines/Machine/MachineParser.h"
 #include <iostream>
 
 int main(int argc, char *argv[]) {

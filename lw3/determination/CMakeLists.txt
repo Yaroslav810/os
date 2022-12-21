@@ -5,7 +5,8 @@ add_executable(
         src/Common/CommonType.h
         src/Common/CommonFunc.h
         src/Determination/Determination.h
-        src/Machine/Machine.h
-        src/Machine/DeterministicMachine.h
-        src/Machine/MachineFunc.h
+        src/Machines/Machine/Machine.h
+        src/Machines/Machine/MachineParser.h
+        src/Machines/DeterministicMachine/DeterministicMachine.h
+        src/Machines/MachineFunc.h
 )

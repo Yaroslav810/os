@@ -1,9 +1,9 @@
 #pragma once
 #include "../Common/CommonFunc.h"
 #include "../Common/CommonType.h"
-#include "../Machine/DeterministicMachine.h"
-#include "../Machine/Machine.h"
-#include "../Machine/MachineFunc.h"
+#include "../Machines/DeterministicMachine/DeterministicMachine.h"
+#include "../Machines/Machine/Machine.h"
+#include "../Machines/MachineFunc.h"
 #include <fstream>
 #include <iostream>
 #include <queue>

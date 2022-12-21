@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         //        }
         //        std::cout << std::endl;
 
-        Determination(args.input, args.output, args.type);
+        Determination(machine, args.type);
 
     } catch (const std::exception &e) {
         std::cout << e.what() << std::endl;

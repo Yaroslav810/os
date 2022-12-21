@@ -7,6 +7,7 @@ add_executable(
         src/Determination/Determination.h
         src/Machines/Machine/Machine.h
         src/Machines/Machine/MachineParser.h
+        src/Machines/Machine/MachineSaving.h
         src/Machines/DeterministicMachine/DeterministicMachine.h
         src/Machines/MachineFunc.h
 )

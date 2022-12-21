@@ -1,6 +1,7 @@
 #include "src/Args/Args.h"
 #include "src/Determination/Determination.h"
 #include "src/Machines/Machine/MachineParser.h"
+#include "src/Machines/Machine/MachineSaving.h"
 #include <iostream>
 
 int main(int argc, char *argv[]) {

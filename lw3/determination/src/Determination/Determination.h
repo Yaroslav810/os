@@ -3,6 +3,7 @@
 #include "../Common/CommonType.h"
 #include "../Machine/DeterministicMachine.h"
 #include "../Machine/Machine.h"
+#include "../Machine/MachineFunc.h"
 #include <fstream>
 #include <iostream>
 #include <queue>
@@ -54,33 +55,9 @@ DeterministicMachine DeterminationRight(const Machine &machine) {
 }
 
 Machine Determination(const Machine &machine, DeterminationType type) {
-    auto result = type == DeterminationType::LEFT
-                          ? DeterminationLeft(machine)
-                          : DeterminationRight(machine);
+    auto deterministicMachine = type == DeterminationType::LEFT
+                                        ? DeterminationLeft(machine)
+                                        : DeterminationRight(machine);
 
-    //    for (const auto &itemStates: result.states) {
-    //        for (const auto &item: itemStates) {
-    //            std::cout << item << "-";
-    //        }
-    //        std::cout << std::endl;
-    //    }
-    //    std::cout << "|||" << std::endl;
-    //    for (const auto &item: result.paths) {
-    //        std::cout << item << "-";
-    //    }
-    //    std::cout << std::endl;
-    //    std::cout << "|||" << std::endl;
-    //    for (const auto &[key, value]: result.transitions) {
-    //        std::cout << key << ": " << std::endl;
-    //        for (const auto &[k, v]: value) {
-    //            std::cout << "- " << k << ": ";
-    //            for (const auto &item: v) {
-    //                std::cout << item << "|";
-    //            }
-    //            std::cout << std::endl;
-    //        }
-    //    }
-    //    std::cout << "|||" << std::endl;
-
-    return Machine{};
+    return ConvertDeterministicMachineToMachine(deterministicMachine);
 }

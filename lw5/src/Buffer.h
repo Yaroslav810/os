@@ -10,11 +10,18 @@ struct Buffer {
 
     std::string GetItem() {
         if (m_queue.empty()) {
-            throw std::invalid_argument("Unexpected ending of the file");
+            throw std::invalid_argument("\nERROR: Unexpected ending of the file");
         }
         auto item = m_queue.front();
         transform(item.begin(), item.end(), item.begin(), ::toupper);
         return item;
+    }
+
+    std::string GetOriginalItem() {
+        if (m_queue.empty()) {
+            return "";
+        }
+        return m_queue.front();
     }
 
     void PopItem() {
@@ -26,9 +33,8 @@ private:
 };
 
 void CompareItem(const std::string &item, Buffer &buffer) {
-    auto currentItem = buffer.GetItem();
-    if (currentItem != item) {
-        throw std::invalid_argument("\nERROR: \"" + item + "\" is expected, but \"" + currentItem + "\" is received");
+    if (buffer.GetItem() != item) {
+        throw std::invalid_argument("\nERROR: \"" + item + "\" is expected, but \"" + buffer.GetOriginalItem() + "\" is received");
     }
     buffer.PopItem();
 }

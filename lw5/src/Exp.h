@@ -2,13 +2,9 @@
 #include "Buffer.h"
 #include "T.h"
 
-bool ParseExp(Buffer &buffer) {
-    auto result = ParseT(buffer);
-    if (!result) {
-        return false;
-    }
+void ParseExp(Buffer &buffer) {
+    ParseT(buffer);
     if (CheckItem(Terminal::PLUS, buffer)) {
-        ParseExp(buffer);//ParseT(buffer);
+        ParseExp(buffer);
     }
-    return true;
 }

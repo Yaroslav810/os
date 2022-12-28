@@ -3,18 +3,16 @@
 #include "Exp.h"
 #include "Terminal.h"
 
-bool ParseExp(Buffer &buffer);
+void ParseExp(Buffer &buffer);
 
-bool ParseF(Buffer &buffer) {
+void ParseF(Buffer &buffer) {
     if (CheckItem(Terminal::MINUS, buffer)) {
         ParseF(buffer);
-        return true;
     } else if (CheckItem(Terminal::OPENING_BRACKET, buffer)) {
         ParseExp(buffer);
         CompareItem(Terminal::CLOSING_BRACKET, buffer);
-        return true;
     } else if (CheckItem(Terminal::ID, buffer) || CheckItem(Terminal::NUM, buffer)) {
-        return true;
+    } else {
+        throw std::invalid_argument("\nERROR: Failed to parse F");
     }
-    return false;
 }

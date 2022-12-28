@@ -3,13 +3,9 @@
 #include "F.h"
 #include "Terminal.h"
 
-bool ParseT(Buffer &buffer) {
-    auto result = ParseF(buffer);
-    if (!result) {
-        return result;
-    }
+void ParseT(Buffer &buffer) {
+    ParseF(buffer);
     if (CheckItem(Terminal::MULTIPLY, buffer)) {
-        ParseT(buffer);//ParseF(buffer);
+        ParseT(buffer);
     }
-    return true;
 }

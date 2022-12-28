@@ -3,15 +3,14 @@ add_executable(
         main.cpp
         src/Args.h
         src/Terminal.h
-        src/Utils.h
         src/Common.h
         src/Buffer.h
-        src/Prog.h
-        src/Var.h
-        src/Idlist.h
-        src/Type.h
-        src/Listst.h
-        src/Exp.h
-        src/T.h
-        src/F.h
+        src/Components/Prog.h
+        src/Components/Var.h
+        src/Components/Idlist.h
+        src/Components/Type.h
+        src/Components/Listst.h
+        src/Components/Exp.h
+        src/Components/T.h
+        src/Components/F.h
 )

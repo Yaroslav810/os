@@ -1,7 +1,7 @@
 #pragma once
-#include "Buffer.h"
+#include "../Buffer.h"
+#include "../Terminal.h"
 #include "F.h"
-#include "Terminal.h"
 
 void ParseT(Buffer &buffer) {
     ParseF(buffer);

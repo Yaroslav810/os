@@ -1,6 +1,6 @@
 #include "src/Args.h"
 #include "src/Buffer.h"
-#include "src/Prog.h"
+#include "src/Components/Prog.h"
 #include <fstream>
 #include <queue>
 #include <sstream>

@@ -1,5 +1,5 @@
 #pragma once
-#include "Terminal.h"
+#include "../Terminal.h"
 
 void ParseIdlist(Buffer &buffer) {
     CompareItem(Terminal::ID, buffer);

@@ -1,7 +1,7 @@
 #pragma once
-#include "Common.h"
+#include "../Common.h"
+#include "../Terminal.h"
 #include "Listst.h"
-#include "Terminal.h"
 #include "Var.h"
 #include <iostream>
 #include <queue>

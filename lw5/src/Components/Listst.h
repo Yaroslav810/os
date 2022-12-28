@@ -1,8 +1,8 @@
 #pragma once
-#include "Buffer.h"
+#include "../Buffer.h"
+#include "../Terminal.h"
 #include "Exp.h"
 #include "Idlist.h"
-#include "Terminal.h"
 
 bool ParseRead(Buffer &buffer) {
     auto checking = CheckItem(Terminal::READ, buffer);

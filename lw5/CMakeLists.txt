@@ -1,0 +1,17 @@
+add_executable(
+        os_recursive_descent
+        main.cpp
+        src/Args.h
+        src/Terminal.h
+        src/Utils.h
+        src/Common.h
+        src/Buffer.h
+        src/Prog.h
+        src/Var.h
+        src/Idlist.h
+        src/Type.h
+        src/Listst.h
+        src/Exp.h
+        src/T.h
+        src/F.h
+)

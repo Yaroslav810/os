@@ -40,17 +40,13 @@ bool ParseAssign(Buffer &buffer) {
 }
 
 bool ParseSt(Buffer &buffer) {
-    bool checking;
-    checking = ParseRead(buffer);
-    if (checking) {
+    if (ParseRead(buffer)) {
         return true;
     }
-    checking = ParseWrite(buffer);
-    if (checking) {
+    if (ParseWrite(buffer)) {
         return true;
     }
-    checking = ParseAssign(buffer);
-    if (checking) {
+    if (ParseAssign(buffer)) {
         return true;
     }
 

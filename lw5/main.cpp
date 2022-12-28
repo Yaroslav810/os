@@ -44,8 +44,6 @@ int main(int argc, char *argv[]) {
 
     std::ifstream input(args.value().input);
     auto data = GetString(input);
-    std::cout << data << std::endl;
-
     std::stringstream ss(data);
     std::string op;
     std::queue<std::string> queue;

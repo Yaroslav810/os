@@ -39,7 +39,7 @@ std::string GetString(std::ifstream &input) {
 int main(int argc, char *argv[]) {
     auto args = ParseArgs(argc, argv);
     if (!args.has_value()) {
-        // Todo: Написать стих
+        std::cout << "No arguments" << std::endl;
     }
 
     std::ifstream input(args.value().input);
@@ -54,10 +54,9 @@ int main(int argc, char *argv[]) {
     try {
         Buffer buffer(queue);
         ParseProg(buffer);
-        // Todo: Написать стих
+        std::cout << "The analysis is successful!" << std::endl;
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
-        // Todo: Написать стих
     }
 
     return 0;

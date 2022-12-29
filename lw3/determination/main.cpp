@@ -12,7 +12,13 @@ int main(int argc, char *argv[]) {
         CheckFileOpen(input, output);
         auto machine = ParseMachineFromStream(input, args.type);
         machine = Determination(machine, args.type);
+        SaveMachineToStreamAsCsv(output, machine);
+
         for (const auto &item: machine.states) {
+            std::cout << item << "-";
+        }
+        std::cout << std::endl;
+        for (const auto &item: machine.finals) {
             std::cout << item << "-";
         }
         std::cout << std::endl;

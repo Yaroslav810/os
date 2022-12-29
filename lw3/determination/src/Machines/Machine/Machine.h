@@ -13,4 +13,5 @@ struct Machine {
     std::vector<std::string> states;
     std::vector<std::string> paths;
     std::unordered_map<std::string, MachineTransitionState> transitions;
+    std::vector<bool> finals;
 };

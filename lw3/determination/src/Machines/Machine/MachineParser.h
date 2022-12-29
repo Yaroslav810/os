@@ -38,6 +38,7 @@ Machine ParseMachineFromStream(std::istream &input, DeterminationType type) {
         std::string state;
         iss >> state;
         machine.states.push_back(state);
+        machine.finals.emplace_back(false);
 
         std::string last;
         iss >> last;
@@ -46,6 +47,7 @@ Machine ParseMachineFromStream(std::istream &input, DeterminationType type) {
         ParseTransition(last, machine, type);
     }
     machine.states.emplace_back("");
+    machine.finals.emplace_back(true);
 
     return machine;
 }

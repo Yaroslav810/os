@@ -3,6 +3,7 @@
 #include <iostream>
 
 constexpr char CSV_SEPARATOR = ';';
+const std::string FINAL_STATE_TITLE = "F";
 
 std::string GetStringFromSet(const std::set<std::string> &set) {
     std::string result;
@@ -42,6 +43,12 @@ void SaveMachineToStreamAsCsv(std::ostream &output, const Machine &machine) {
     }
 
     output << CSV_SEPARATOR;
+    for (const auto &item: machine.finals) {
+        output << (item ? FINAL_STATE_TITLE : "") << CSV_SEPARATOR;
+    }
+    output << std::endl;
+
+    output << CSV_SEPARATOR;
     for (const auto &item: machine.states) {
         output << item << CSV_SEPARATOR;
     }
@@ -54,6 +61,4 @@ void SaveMachineToStreamAsCsv(std::ostream &output, const Machine &machine) {
         }
         output << std::endl;
     }
-
-    output << std::endl;
 }

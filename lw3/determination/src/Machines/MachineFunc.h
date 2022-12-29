@@ -29,5 +29,8 @@ Machine ConvertDeterministicMachineToMachine(const DeterministicMachine &determi
         machine.states.push_back(title);
     }
     machine.paths = deterministicMachine.paths;
+    for (const auto &item: deterministicMachine.states) {
+        machine.finals.push_back(item.find("") != item.end());
+    }
     return machine;
 }

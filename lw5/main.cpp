@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
     auto args = ParseArgs(argc, argv);
     if (!args.has_value()) {
         std::cout << "No arguments" << std::endl;
+        return 1;
     }
 
     std::ifstream input(args.value().input);

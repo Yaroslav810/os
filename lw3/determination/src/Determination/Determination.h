@@ -8,11 +8,7 @@
 #include <iostream>
 #include <queue>
 
-DeterministicMachine DeterminationLeft(const Machine &machine) {
-    return DeterministicMachine{};
-}
-
-DeterministicMachine DeterminationRight(const Machine &machine) {
+DeterministicMachine DeterminationImpl(const Machine &machine) {
     DeterministicMachine deterministicMachine{};
     std::queue<std::set<std::string>> queue;
     if (!machine.states.empty()) {
@@ -51,13 +47,17 @@ DeterministicMachine DeterminationRight(const Machine &machine) {
             }
         }
     }
+    auto finalIt = std::find(machine.finals.begin(), machine.finals.end(), true);
+    if (finalIt != machine.finals.end()) {
+        auto final = machine.states[finalIt - machine.finals.begin()];
+        for (const auto &item: deterministicMachine.states) {
+            deterministicMachine.finals.push_back(item.find(final) != item.end());
+        }
+    }
     return deterministicMachine;
 }
 
-Machine Determination(const Machine &machine, DeterminationType type) {
-    auto deterministicMachine = type == DeterminationType::LEFT
-                                        ? DeterminationLeft(machine)
-                                        : DeterminationRight(machine);
-
+Machine Determination(const Machine &machine) {
+    auto deterministicMachine = DeterminationImpl(machine);
     return ConvertDeterministicMachineToMachine(deterministicMachine);
 }

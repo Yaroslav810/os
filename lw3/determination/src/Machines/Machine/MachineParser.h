@@ -33,6 +33,10 @@ Machine ParseMachineFromStream(std::istream &input, DeterminationType type) {
     Machine machine{};
 
     std::string line;
+    if (type == DeterminationType::LEFT) {
+        machine.states.emplace_back("");
+        machine.finals.emplace_back(false);
+    }
     while (std::getline(input, line)) {
         std::istringstream iss(line);
         std::string state;
@@ -46,8 +50,13 @@ Machine ParseMachineFromStream(std::istream &input, DeterminationType type) {
         std::getline(iss, last);
         ParseTransition(last, machine, type);
     }
-    machine.states.emplace_back("");
-    machine.finals.emplace_back(true);
+    if (type == DeterminationType::RIGHT) {
+        machine.states.emplace_back("");
+        machine.finals.emplace_back(true);
+    }
+    if (type == DeterminationType::LEFT && machine.finals.size() > 1) {
+        machine.finals[1] = true;
+    }
 
     return machine;
 }

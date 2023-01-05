@@ -42,22 +42,20 @@ void SaveMachineToStreamAsCsv(std::ostream &output, const Machine &machine) {
         }
     }
 
-    output << CSV_SEPARATOR;
     for (const auto &item: machine.finals) {
-        output << (item ? FINAL_STATE_TITLE : "") << CSV_SEPARATOR;
+        output << CSV_SEPARATOR << (item ? FINAL_STATE_TITLE : "");
     }
     output << std::endl;
 
-    output << CSV_SEPARATOR;
     for (const auto &item: machine.states) {
-        output << item << CSV_SEPARATOR;
+        output << CSV_SEPARATOR << item;
     }
     output << std::endl;
 
     for (int i = 0; i < machine.paths.size(); ++i) {
-        output << machine.paths[i] << CSV_SEPARATOR;
+        output << machine.paths[i];
         for (auto &j: table[i]) {
-            output << j << CSV_SEPARATOR;
+            output << CSV_SEPARATOR << j;
         }
         output << std::endl;
     }

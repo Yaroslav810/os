@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
         std::ofstream output(args.output);
         CheckFileOpen(input, output);
         auto machine = ParseMachineFromStream(input);
+        AddEmptyTransitions(machine);
         machine = Determination(machine);
         SaveMachineToStreamAsCsv(output, machine);
     } catch (const std::exception &e) {

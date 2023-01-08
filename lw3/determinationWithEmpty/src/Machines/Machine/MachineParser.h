@@ -25,6 +25,10 @@ Machine ParseMachineFromStream(std::istream &input) {
         machine.states.push_back(items[i]);
     }
 
+    if (machine.finals.size() != machine.states.size()) {
+        machine.finals.push_back(false);
+    }
+
     while (std::getline(input, line)) {
         items.clear();
         Split(line, SEMICOLON, items);
@@ -33,7 +37,6 @@ Machine ParseMachineFromStream(std::istream &input) {
             for (size_t i = 1; i < items.size(); ++i) {
                 std::vector<std::string> states;
                 Split(items[i], COMMA, states);
-                machine.emptiness[machine.states[i - 1]].insert(machine.states[i - 1]);
                 for (const auto &item: states) {
                     if (item != "-") {
                         machine.emptiness[machine.states[i - 1]].insert(item);

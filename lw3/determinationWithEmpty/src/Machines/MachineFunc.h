@@ -1,6 +1,7 @@
 #pragma once
 #include "DeterministicMachine/DeterministicMachine.h"
 #include "Machine/Machine.h"
+#include <queue>
 
 const std::string NEW_STATE_TITLE = "S";
 
@@ -33,4 +34,32 @@ Machine ConvertDeterministicMachineToMachine(const DeterministicMachine &determi
         machine.finals.push_back(item);
     }
     return machine;
+}
+
+void AddEmptyTransitions(Machine &machine) {
+    for (const auto &item: machine.states) {
+        std::set<std::string> set;
+        std::queue<std::string> queue;
+        std::vector<std::string> vector;
+        set.insert(item);
+        queue.push(item);
+        vector.push_back(item);
+        while (!queue.empty()) {
+            auto it = queue.front();
+            queue.pop();
+            auto stateIt = machine.emptiness.find(it);
+            if (stateIt == machine.emptiness.end()) {
+                continue;
+            }
+            auto state = stateIt->second;
+            set.insert(state.begin(), state.end());
+            for (const auto &stateItem: state) {
+                if (std::find(vector.begin(), vector.end(), stateItem) == vector.end()) {
+                    queue.push(stateItem);
+                    vector.push_back(stateItem);
+                }
+            }
+        }
+        machine.emptiness[item].insert(set.begin(), set.end());
+    }
 }

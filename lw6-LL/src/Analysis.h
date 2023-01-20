@@ -9,7 +9,8 @@ bool ProgramAnalysis(std::vector<Rule> const &rules, std::string line) {
     int ruleIndex = 0;
     int chIndex = 0;
 
-    while (true) {
+    stack.push(ruleIndex);
+    while (!stack.empty()) {
         auto currentRule = rules.at(ruleIndex);
         auto symbol = (chIndex >= line.size()) ? '\0' : line[chIndex];
         auto guidingSymbols = rules[ruleIndex].guidingSymbols;
@@ -29,10 +30,6 @@ bool ProgramAnalysis(std::vector<Rule> const &rules, std::string line) {
             }
             ruleIndex++;
             continue;
-        }
-
-        if (currentRule.isEnd) {
-            break;
         }
 
         if (currentRule.shift) {

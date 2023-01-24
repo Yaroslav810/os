@@ -12,9 +12,9 @@ bool ProgramAnalysis(std::vector<Rule> const &rules, std::string line) {
     stack.push(ruleIndex);
     while (!stack.empty()) {
         auto currentRule = rules.at(ruleIndex);
-        auto symbol = (chIndex >= line.size()) ? '\0' : line[chIndex];
+        auto symbol = (chIndex >= line.size()) ? '\n' : line[chIndex];
         auto guidingSymbols = rules[ruleIndex].guidingSymbols;
-        auto found = std::find(guidingSymbols.begin(), guidingSymbols.end(), symbol) != guidingSymbols.end() || std::find(guidingSymbols.begin(), guidingSymbols.end(), '\n') != guidingSymbols.end();
+        auto found = std::find(guidingSymbols.begin(), guidingSymbols.end(), symbol) != guidingSymbols.end();
 
         std::cout << symbol << ": " << (found ? "true" : "false") << " : " << ruleIndex << " | ";
         auto newQ = stack;

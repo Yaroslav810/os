@@ -76,6 +76,8 @@ void CMinimizer::MooreMinimizer(CMoore &moore) {
             if (auto it = std::find(statesOld.begin(), statesOld.end(), item); it != statesOld.end()) {
                 auto index = it - statesOld.begin();
                 newTransitionLine.push_back(uniques[index]);
+            } else {
+                newTransitionLine.emplace_back("");
             }
         }
         newTransitions.push_back(newTransitionLine);
@@ -196,6 +198,8 @@ std::vector<std::vector<std::string>> CMinimizer::CreateNewTransitions(const CMo
             if (auto it = std::find(states.begin(), states.end(), j); it != states.end()) {
                 auto index = it - states.begin();
                 line.push_back(data[index]);
+            } else {
+                line.emplace_back("");
             }
         }
         result.push_back(line);

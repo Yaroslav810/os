@@ -39,26 +39,31 @@ std::string CMoore::ConvertToCSV() {
 void CMoore::ReadOutputsCSV(const std::string &line) {
     std::vector<std::string> outputs;
     Split(line, ';', outputs);
-    for (const auto &output: outputs) {
-        if (!output.empty()) {
-            m_output.push_back(output);
-        }
+    if (line[line.size() - 1] == ';') {
+        outputs.emplace_back("");
+    }
+    for (int i = 1; i < outputs.size(); ++i) {
+        m_output.push_back(outputs[i]);
     }
 }
 
 void CMoore::ReadStatesCSV(const std::string &line) {
     std::vector<std::string> states;
     Split(line, ';', states);
-    for (const auto &state: states) {
-        if (!state.empty()) {
-            m_states.push_back(state);
-        }
+    if (line[line.size() - 1] == ';') {
+        states.emplace_back("");
+    }
+    for (int i = 1; i < states.size(); ++i) {
+        m_states.push_back(states[i]);
     }
 }
 
 void CMoore::ReadTransitionsCSV(const std::string &line) {
     std::vector<std::string> transitions;
     Split(line, ';', transitions);
+    if (line[line.size() - 1] == ';') {
+        transitions.emplace_back("");
+    }
     auto path = transitions[0];
     m_paths.push_back(path);
     std::vector<std::string> transitionLine;
